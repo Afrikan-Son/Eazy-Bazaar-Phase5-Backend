@@ -1,3 +1,3 @@
 class RiderSerializer < ActiveModel::Serializer
-  attributes :id, :name
+  attributes :id, :name,:phone_number
 end

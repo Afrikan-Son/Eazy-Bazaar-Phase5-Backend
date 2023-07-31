@@ -27,7 +27,7 @@ class ProductsController < ApplicationController
   def find_by
     product = Product.find(params[:id])
   end
-  def render_review_not_found
+  def render_product_not_found
     render json: {error: "Product Not Found"},status: :not_found
   end
   def product_params
