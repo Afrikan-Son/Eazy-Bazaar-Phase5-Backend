@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :reviews
-  resources :riders
-  resources :products
+  resources :reviews, only: [:index, :show, :create] 
+  resources :riders, only: [:index, :show] 
+  resources :products, only: [:index, :show, :destroy]
  namespace :api do
     namespace :v1 do
       resources :users, only: [:create]
