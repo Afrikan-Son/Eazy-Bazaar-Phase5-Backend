@@ -26,6 +26,6 @@ class ReviewsController < ApplicationController
     render json: {error: "Review Not Found"},status: :not_found
   end
   def review_params
-    params.require(:review).permit(:description,:product_id,:user_id, :rider_id)
+    params.require(:review).permit(:description,:product_id,:user_id, :rider_id, :rating)
   end
 end

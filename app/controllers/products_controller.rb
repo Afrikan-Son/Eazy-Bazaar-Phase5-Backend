@@ -31,6 +31,6 @@ class ProductsController < ApplicationController
     render json: {error: "Product Not Found"},status: :not_found
   end
   def product_params
-    params.require(:product).permit(:name,:category,:description,:price,:image)
+    params.require(:product).permit(:name,:category,:description,:price,:image,:instock,:stock_count)
   end
 end
