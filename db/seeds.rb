@@ -1,7 +1,13 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+require 'rest-client'
+
+def products_dataset
+   products = RestClient.get("https://fakestoreapi.com/products") 
+   products_array = JSON.parse(products)
+   #puts(products_array)  
+    products_array.each do |s| 
+        Product.create(name: s["title"], price: s["price"], category: s["category"], description: s["description"], image: s["image"])
+    end
+end
+products_dataset()
+
+puts "Seed complete!" 
