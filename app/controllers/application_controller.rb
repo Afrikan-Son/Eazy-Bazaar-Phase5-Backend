@@ -2,6 +2,8 @@ class ApplicationController < ActionController::API
   before_action :authorized
 
   def encode_token(payload)
+    # Add an expiration time to the payload (e.g., 1 hour from now)
+    payload[:exp] = 1.hour.from_now.to_i
     # should store secret in env variable
     JWT.encode(payload, 'my_s3cr3t')
   end
@@ -16,7 +18,11 @@ class ApplicationController < ActionController::API
       token = auth_header.split(' ')[1]
       # header: { 'Authorization': 'Bearer <token>' }
       begin
+        # Set 'true' for 'verify_iat' to validate the 'iat' claim (issued at) if present
         JWT.decode(token, 'my_s3cr3t', true, algorithm: 'HS256')
+      rescue JWT::ExpiredSignature
+        # If token has expired, return nil
+        nil
       rescue JWT::DecodeError
         nil
       end
