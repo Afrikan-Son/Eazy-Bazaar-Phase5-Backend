@@ -1,5 +1,6 @@
 class Api::V1::UsersController < ApplicationController
   skip_before_action :authorized, only: [:create]
+  before_action :authorized, only: [:profile]
 
   def profile
     render json: { user: UserSerializer.new(current_user) }, status: :accepted
@@ -9,7 +10,10 @@ class Api::V1::UsersController < ApplicationController
     @user = User.create(user_params)
     if @user.valid?
       @token = encode_token({ user_id: @user.id })
+      # Deliver email to user
+      UserNotifierMailer.send_signup_email(@user).deliver
       render json: { user: UserSerializer.new(@user), jwt: @token }, status: :created
+
     else
       render json: { error: 'failed to create user' }, status: :unprocessable_entity
     end
