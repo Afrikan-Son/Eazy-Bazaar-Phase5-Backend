@@ -264,6 +264,7 @@ DEPENDENCIES
   rest-client (~> 2.1)
   selenium-webdriver
   sendgrid-ruby
+
   sprockets-rails
   stimulus-rails
   turbo-rails

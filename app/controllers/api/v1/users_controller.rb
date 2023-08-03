@@ -9,8 +9,12 @@ class Api::V1::UsersController < ApplicationController
     @user = User.create(user_params)
     if @user.valid?
       @token = encode_token({ user_id: @user.id })
+
        UserMailer.send_signup_email(@user).deliver_now
+
+
       render json: { user: UserSerializer.new(@user), jwt: @token }, status: :created
+
     else
       render json: { error: 'failed to create user' }, status: :unprocessable_entity
     end
