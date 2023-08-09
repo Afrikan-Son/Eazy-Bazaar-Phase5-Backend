@@ -1,3 +1,5 @@
 class OrderDetailSerializer < ActiveModel::Serializer
-  attributes  :quantity,:order_id,:product_id
+  attributes  :quantity
+  has_one :order
+  has_one :product
 end

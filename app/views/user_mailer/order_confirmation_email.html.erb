@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+  <h1>Order Confirmation</h1>
+  <p>Hello <%= @user.username %>,</p>
+  <p>Your order has been confirmed. Here are the details:</p>
+
+  <table>
+    <tr>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>Price per Item</th>
+    </tr>
+    <% @order.order_details.map do |item| %>
+      <tr>
+        <td><%= item.product.name %></td>
+        <td><%= item.quantity %></td>
+        <td>$<%= item.product.price %></td>
+      </tr>
+    <% end %>
+  </table>
+
+  <p>Total Amount: $<%= @order.total_amount %></p>
+  <p>Order Date: <%= @order.date.strftime('%B %d, %Y') %></p>
+
+  <p>Thank you for shopping with us!</p>
+  <p>If you have any questions or concerns, please don't hesitate to contact our customer support.</p>
+
+  <p>Best regards,<br>
+  The Eazy Bazaar Team</p>
+</body>
+</html>

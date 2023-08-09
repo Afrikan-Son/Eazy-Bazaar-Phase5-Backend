@@ -11,6 +11,7 @@ class Api::V1::OrdersController < ApplicationController
 
   def create
     order = Order.create!(order_params)
+    UserMailer.order_confirmation_email(@user, order).deliver_now
     render json: order, status: :created
   end
 

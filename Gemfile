@@ -55,13 +55,14 @@ gem 'rest-client', '~> 2.1'
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'bundler-audit', require: false
+
   
 end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
-  gem 'bundler-audit'
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
@@ -81,6 +82,8 @@ gem "jwt", "~> 2.7"
 gem "active_model_serializers", "~> 0.10.13"
 
 gem "faker", "~> 3.2"
+
 gem 'sendgrid-ruby'
 
 gem "figaro"
+

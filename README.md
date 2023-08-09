@@ -1,24 +1,27 @@
-# README
+# Eazy Bazaar 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description 
+The backend for the Ecommerce app displays,products,does deliveries.
 
-Things you may want to cover:
+There are 4 models: User,Product,Review,Rider
+A Product belongs to a User,a User has many products ,Reviews belongs to Product
 
-* Ruby version
+## Technologies used
 
-* System dependencies
+* React.js
+* Javascript
+* CSS
+* HTML
+* Ruby (API)
+* Postgrres
 
-* Configuration
+## Setup and Installation
+- Clone the repository to your local machine.
+    `git clone git@github.com:Afrikan-Son/Eazy-Bazaar-Phase5-Backend.git`
+- Install the required dependencies using 
+      ``bundle install``
+- Run the application using 
+       ``bundle exec rake server``
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## License
+MIT license
