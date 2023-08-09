@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::API
   before_action :authorized
 
@@ -14,26 +16,26 @@ class ApplicationController < ActionController::API
   end
 
   def decoded_token
-    if auth_header
-      token = auth_header.split(' ')[1]
-      # header: { 'Authorization': 'Bearer <token>' }
-      begin
-        # Set 'true' for 'verify_iat' to validate the 'iat' claim (issued at) if present
-        JWT.decode(token, 'my_s3cr3t', true, algorithm: 'HS256')
-      rescue JWT::ExpiredSignature
-        # If token has expired, return nil
-        nil
-      rescue JWT::DecodeError
-        nil
-      end
+    return unless auth_header
+
+    token = auth_header.split(' ')[1]
+    # header: { 'Authorization': 'Bearer <token>' }
+    begin
+      # Set 'true' for 'verify_iat' to validate the 'iat' claim (issued at) if present
+      JWT.decode(token, 'my_s3cr3t', true, algorithm: 'HS256')
+    rescue JWT::ExpiredSignature
+      # If token has expired, return nil
+      nil
+    rescue JWT::DecodeError
+      nil
     end
   end
 
   def current_user
-    if decoded_token
-      user_id = decoded_token[0]['user_id']
-      @user = User.find_by(id: user_id)
-    end
+    return unless decoded_token
+
+    user_id = decoded_token[0]['user_id']
+    @user = User.find_by(id: user_id)
   end
 
   def logged_in?
