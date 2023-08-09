@@ -1,6 +1,6 @@
 class Api::V1::OrdersController < ApplicationController
   before_action :authorized
-  rescue_from ActiveRecord::RecordInvalid, with: :invalid_order_record_unprocessable_entity
+  
  before_action :find_user
 
   def index
