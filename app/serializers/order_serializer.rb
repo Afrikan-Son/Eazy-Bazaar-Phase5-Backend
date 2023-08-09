@@ -1,4 +1,5 @@
 class OrderSerializer < ActiveModel::Serializer
-  attributes :id, :rider, :references, :total_amount, :date
+  attributes :id, :rider_id, :total_amount, :date
   has_one :user
+  has_many :order_details
 end
