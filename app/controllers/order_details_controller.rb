@@ -14,7 +14,7 @@ class OrderDetailsController < ApplicationController
     params.require(:order_details).permit(:order_id, :product_id, :quantity)
   end
 
-  def invalid_order_detail_record_unprocessable_entity
+  def invalid_order_detail_record_unprocessable_entity(invalid)
     render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
   end
 end
