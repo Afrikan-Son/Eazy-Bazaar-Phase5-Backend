@@ -22,4 +22,9 @@ def products_dataset
 end
 products_dataset
 
+Rider.create(name: "Mark Kamau", phone_number: 0700000000)
+Rider.create(name: "Andrew Njuguna", phone_number: 0700444400)
+
+
+
 puts 'Seed complete!'
