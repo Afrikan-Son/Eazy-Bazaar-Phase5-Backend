@@ -4,6 +4,7 @@ require 'rest-client'
 
 Product.delete_all
 Rider.delete_all
+User.delete_all
 ActiveRecord::Base.connection.reset_pk_sequence!('products')
 ActiveRecord::Base.connection.reset_pk_sequence!('riders')
 
