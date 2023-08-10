@@ -26,6 +26,7 @@ A Product belongs to a User,a User has many products ,Reviews belongs to Product
     `git clone git@github.com:Afrikan-Son/Eazy-Bazaar-Phase5-Backend.git`
 - Install the required dependencies using 
       ``bundle install``
+- Make sure the database running on postgres is running on your machine.
 - Run the application using 
        ``bundle exec rake server``
 
