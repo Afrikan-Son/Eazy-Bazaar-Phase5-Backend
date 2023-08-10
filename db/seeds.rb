@@ -3,7 +3,14 @@
 require 'rest-client'
 
 Product.delete_all
+# Delete all associated reviews first
+Review.delete_all
+
+# Delete all users
 User.delete_all
+
+# Reset primary key sequence for users table
+ActiveRecord::Base.connection.reset_pk_sequence!('users')
 ActiveRecord::Base.connection.reset_pk_sequence!('products')
 
 def products_dataset
@@ -24,20 +31,6 @@ def products_dataset
 end
 
 products_dataset
-
-def generate_random_phone_number
-  rand(254_710_000_000..254_799_999_999)
-end
-
-6.times do
-  Rider.create(
-    name: Faker::Name.name,
-    phone_number: generate_random_phone_number
-  )
-end
-
-Rider.create(name: 'Mark Kamau', phone_number: 0o700000000)
-Rider.create(name: 'Andrew Njuguna', phone_number: 0o700444400)
 
 Review.create(user_id: 1, rider_id: 1,
               description: 'Products delivered on time and in good state,would really recommend their services')
