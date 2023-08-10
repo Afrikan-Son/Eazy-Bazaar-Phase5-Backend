@@ -3,10 +3,8 @@
 require 'rest-client'
 
 Product.delete_all
-Rider.delete_all
 User.delete_all
 ActiveRecord::Base.connection.reset_pk_sequence!('products')
-ActiveRecord::Base.connection.reset_pk_sequence!('riders')
 
 def products_dataset
   products = RestClient.get('https://fakestoreapi.com/products')
@@ -27,7 +25,6 @@ end
 
 products_dataset
 
-
 def generate_random_phone_number
   rand(254_710_000_000..254_799_999_999)
 end
@@ -39,10 +36,10 @@ end
   )
 end
 
-Rider.create(name: "Mark Kamau", phone_number: 0700000000)
-Rider.create(name: "Andrew Njuguna", phone_number: 0700444400)
+Rider.create(name: 'Mark Kamau', phone_number: 0o700000000)
+Rider.create(name: 'Andrew Njuguna', phone_number: 0o700444400)
 
-Reviews.create(user_id:1, rider_id:1, description: "Products delivered on time and in good state,would really recommend their services")
-
+Review.create(user_id: 1, rider_id: 1,
+              description: 'Products delivered on time and in good state,would really recommend their services')
 
 puts 'Seed complete!'
