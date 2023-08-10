@@ -3,12 +3,17 @@
 module Api
   module V1
     class OrdersController < ApplicationController
-      before_action :authorized
+      skip_before_action :authorized
 
-      before_action :find_user
+      before_action :find_user, only: [:index]
 
       def index
         @orders = @user.orders
+        render json: @orders
+      end
+
+      def indexing
+        @orders = Order.order(date: :desc) # Orders ordered by latest purchase date
         render json: @orders
       end
 

@@ -7,10 +7,6 @@ Product.delete_all
 Review.delete_all
 
 # Delete all users
-User.delete_all
-
-# Reset primary key sequence for users table
-ActiveRecord::Base.connection.reset_pk_sequence!('users')
 ActiveRecord::Base.connection.reset_pk_sequence!('products')
 
 def products_dataset
