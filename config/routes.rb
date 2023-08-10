@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       post '/login', to: 'auth#create'
       get '/profile', to: 'users#profile'
+      get '/admin_action', to: 'admin#admin_action'
       resources :users, only: [:create] do
         resources :orders, only: %i[create index]
       end

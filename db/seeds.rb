@@ -3,7 +3,10 @@
 require 'rest-client'
 
 Product.delete_all
+Rider.delete_all
 ActiveRecord::Base.connection.reset_pk_sequence!('products')
+ActiveRecord::Base.connection.reset_pk_sequence!('riders')
+
 def products_dataset
   products = RestClient.get('https://fakestoreapi.com/products')
   products_array = JSON.parse(products)
@@ -15,11 +18,23 @@ def products_dataset
       category: product['category'],
       description: product['description'],
       image: product['image'],
-      instock: true, # Use hash syntax here instead of :in_stock
+      instock: true,
       stock_count: rand(10..150)
     )
   end
 end
+
 products_dataset
+
+def generate_random_phone_number
+  rand(254_710_000_000..254_799_999_999)
+end
+
+6.times do
+  Rider.create(
+    name: Faker::Name.name,
+    phone_number: generate_random_phone_number
+  )
+end
 
 puts 'Seed complete!'
