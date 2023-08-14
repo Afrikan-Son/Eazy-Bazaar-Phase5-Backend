@@ -1,40 +1,85 @@
-# Phase 5 Backend Eazy Bazaar 
+# Eazy Bazaar Backend Readme
 
-## Description 
-The Ecommerce app displays products,riders, does deliveries
+## Phase 5 Backend - Eazy Bazaar
 
-There are 4 models: User,Product,Review,Rider
-A Product belongs to a User,a User has many products ,Reviews belongs to Product
+Welcome to the backend repository of Eazy Bazaar, an Ecommerce app that handles products, deliveries, and user reviews.
 
-## Live Link
+## Description
+
+Eazy Bazaar's backend manages user authentication, product data, order processing, and reviews. The app is built around User, Product, Review, and Rider models.
+
+## API Documentation
+
+Explore the API documentation [here](https://eazy-bazaar-api/docs).
 
 ## Key Features
+
 - User Authentication
-- Display product details
-- Add to cart
-- Riders page
-- Orders 
-- Reviews page
+- Product Management
+- Order Handling
+- Review Management
+- Rider Assignment
 
-## Technologies used
+## Technologies Used
 
-* Ruby (API)
-* Postgrres
+- Ruby (API)
+- PostgreSQL
 
 ## Setup and Installation
-- Clone the repository to your local machine.
-    `git clone git@github.com:Afrikan-Son/Eazy-Bazaar-Phase5-Backend.git`
-- Install the required dependencies using 
-      ``bundle install``
-- Make sure the database running on postgres is running on your machine.
-- Run the application using 
-       ``bundle exec rake server``
+
+1. Clone the repository:
+
+Certainly, here's the hashed format of the Eazy Bazaar Backend Readme:
+
+markdown
+Copy code
+# Eazy Bazaar Backend Readme
+
+## Phase 5 Backend - Eazy Bazaar
+
+Welcome to the backend repository of Eazy Bazaar, an Ecommerce app that handles products, deliveries, and user reviews.
+
+## Description
+
+Eazy Bazaar's backend manages user authentication, product data, order processing, and reviews. The app is built around User, Product, Review, and Rider models.
+
+## API Documentation
+
+Explore the API documentation [here](https://eazy-bazaar-api/docs).
+
+## Key Features
+
+- User Authentication
+- Product Management
+- Order Handling
+- Review Management
+- Rider Assignment
+
+## Technologies Used
+
+- Ruby (API)
+- PostgreSQL
+
+## Setup and Installation
+
+1. Clone the repository:
+git clone git@github.com:Afrikan-Son/Eazy-Bazaar-Phase5-Backend.git
+
+2. Install dependencies:
+
+3. Ensure PostgreSQL is running.
+
+4. Start the server:
 
 ## Status
-The application is fully functional and ready for use. However, further improvements and features could be added in the future.
+
+Fully functional backend ready for use. Future improvements possible.
 
 ## Credits
-This application was developed by group 9 as part of Moringa phase 5 curriculum project. The members involved are Mark Wanjau (Scrum-master), Daniel Juma, ,Ryan Bii, Purity Jepkorir and Nyakundi Mauya. Another important credit is Fake store API (https://github.com/keikaavousi/fake-store-api) as it was the source of the api used in the application.
+
+Developed by Group 9 as part of Moringa Phase 5. Utilized [Fake Store API](https://github.com/keikaavousi/fake-store-api) for data.
 
 ## License
-This project is licensed under the MIT License.
+
+MIT License.
+
