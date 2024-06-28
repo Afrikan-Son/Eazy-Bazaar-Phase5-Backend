@@ -1,4 +1,4 @@
-# Eazy Bazaar Backend Readme
+# Eazy Bazaar Backend ReadMe
 
 ## Phase 5 Backend - Eazy Bazaar
 
